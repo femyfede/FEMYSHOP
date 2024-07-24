@@ -1,0 +1,22 @@
+{% extends "includes/dash.html" %}
+{% load static %}
+
+{% block title %} FEMY SHOP {% endblock %}
+
+{% block content %} 
+
+<div class="container pt-5 my-5 border bg-white text-black w-50">
+    <h3 style="text-align: center;"><b>REGISTRATION FORM</b></h3>
+    <form method="POST" class="form-control form-control-sm" id="form-control form-control-sm">
+        {% csrf_token %}
+        {{ form.name }}
+        {{ form.email }}
+        {{ form.city }}
+        {{ form.password }}
+        {{ form.re_password }}
+        <div class="form-group form-button" >
+            <input type="submit" name="signup" id="signup" class="form-submit" value="register">
+        </div>
+    </form>
+</div>
+{% endblock %}
