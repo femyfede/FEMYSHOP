@@ -1,13 +1,13 @@
 from django.shortcuts import render,redirect
 from .models import User
 from .forms import RegForm,LogForm
-from django.contrib.auth.decorators import login_required
+from django import forms
 
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate
 
 
 # Create your views here.
-def regstration(request):
+def registration(request):
     if request.method == 'POST':
         print("I")
         form = RegForm(request.POST)
@@ -33,7 +33,6 @@ def login(request):
                 form.add_error(None, 'Invalid username or password')
         form = LogForm()
         return render(request,'pages/logindjango.html',{'form':form})
-
-@login_required
 def home(request):
     return render(request, 'pages/home.html')
+
